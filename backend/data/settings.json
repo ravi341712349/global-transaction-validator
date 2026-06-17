@@ -1,0 +1,28 @@
+{
+  "phone_rules": {
+    "IN": 10,
+    "SG": 8,
+    "US": 10,
+    "UK": 10
+  },
+  "date_formats": [
+    "YYYY-MM-DD",
+    "DD/MM/YYYY",
+    "MM/DD/YYYY"
+  ],
+  "time_formats": [
+    "HH:MM",
+    "HH:MM:SS"
+  ],
+  "allowed_payment_modes": [
+    "UPI",
+    "Credit Card",
+    "Debit Card",
+    "PayNow",
+    "PayPal",
+    "Wallet",
+    "Cash",
+    "Net Banking"
+  ],
+  "chunk_size": 10000
+}

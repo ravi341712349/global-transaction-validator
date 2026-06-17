@@ -1,0 +1,4 @@
+order_id,order_date,order_time,customer_name,country_code,phone_number,product_id,product_name,quantity,unit_price,payment_mode,total_amount
+ORD001,2026-01-15,14:30:22,John Doe,IN,9876543210,PROD001,Laptop,1,50000,Credit Card,50000
+ORD002,2026-01-15,09:15:10,Alice Tan,SG,81234567,PROD002,Mouse,2,1000,PayNow,2000
+ORD003,2026-01-16,16:20:30,Rahul Sharma,IN,9988776655,PROD003,Keyboard,1,2500,UPI,2500

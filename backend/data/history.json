@@ -1,0 +1,26 @@
+[
+  {
+    "file_id": "5c807545-140d-4451-ab0f-c93493831f6d",
+    "filename": "sample_transactions (2).csv",
+    "size_bytes": 405,
+    "total_rows": 3,
+    "upload_time": "2026-06-18 00:50:06",
+    "status": "Validated",
+    "success_rate": 100.0,
+    "total_errors": 0
+  },
+  {
+    "file_id": "e03b4366-f8ae-49fd-804a-f3b2e579917c",
+    "filename": "sample_transactions (1).csv",
+    "size_bytes": 405,
+    "total_rows": 3,
+    "upload_time": "2026-06-18 00:48:10",
+    "status": "Processed",
+    "success_rate": 100.0,
+    "total_errors": 0,
+    "split_files_links": [
+      "/download/split_e03b4366-f8ae-49fd-804a-f3b2e579917c_sample_transactions (1)_part_1.csv"
+    ],
+    "zip_file_link": "/download/processed_e03b4366-f8ae-49fd-804a-f3b2e579917c.zip"
+  }
+]
