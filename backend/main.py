@@ -7,6 +7,7 @@ from fastapi import FastAPI, UploadFile, File, HTTPException, Body, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from typing import Dict, List, Any
+import uvicorn
 
 # Internal modules
 from storage import (
@@ -23,9 +24,20 @@ app = FastAPI(
 )
 
 # Enable CORS for frontend integration
+# In production, update allow_origins to include your frontend domain
+cors_origins = [
+    "http://localhost:3000",      # Local development
+    "http://localhost:5173",      # Vite dev server
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5173",
+    # Add your production frontend URL here:
+    # "https://your-frontend-domain.com",
+    "*"  # Allow all origins (can be restricted in production)
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In production, restrict to frontend domain
+    allow_origins=cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -406,3 +418,23 @@ async def download_file(file: str):
         return FileResponse(upload_path, filename=file.split("_", 1)[-1] if "_" in file else file)
         
     raise HTTPException(status_code=404, detail="Requested file not found on server.")
+
+
+# Health check endpoint for Render
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy", "service": "Global Transaction Validator API"}
+
+
+if __name__ == "__main__":
+    # Get PORT from environment variable (Render sets this), default to 8000
+    port = int(os.getenv("PORT", 8000))
+    
+    # Run uvicorn server
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",  # Listen on all interfaces (required for Render)
+        port=port,
+        reload=False,  # Disable reload in production
+        log_level="info"
+    )
